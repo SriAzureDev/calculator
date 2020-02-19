@@ -4,7 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+- none
+
+pr:
+  autoCancel: false # Don't cancel the current build
+  branches:
+    include:
+    - releases/*
 
 pool:
   vmImage: 'ubuntu-latest'
